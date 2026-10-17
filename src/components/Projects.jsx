@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import agencyDashboard from "../assets/agency_level_dashboard.png";
 import adminDashboard from "../assets/admin_dashboard.png";
@@ -6,8 +7,12 @@ import capabilityParticipant from "../assets/capability_participant.png";
 import capabilityAgencyDashboard from "../assets/capability_agency_dashboard.png";
 import posabilityDashboard from "../assets/posability_dashboard.png";
 import posabilityInvoiceCreate from "../assets/posability_invoice_create.png";
+import ImageModal from "./parts/ImageModal";
 
 const Projects = () => {
+
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <div className="mb-10">
       <h2 className="text-xl lg:text-3xl text-white font-semibold">Projects</h2>
@@ -42,9 +47,10 @@ const Projects = () => {
               {[adminDashboard, planabilityUser, agencyDashboard].map((src, i) => (
                 <img
                   key={i}
-                  className="w-full md:flex-1 md:min-w-0 h-48 sm:h-56 md:h-64 object-cover rounded-lg"
+                  className="w-full md:flex-1 md:min-w-0 h-48 sm:h-56 md:h-64 object-cover rounded-lg cursor-zoom-in"
                   src={src}
                   alt={`planability_screenshot_${i + 1}`}
+                  onClick={() => setSelectedImage(src)}
                 />
               ))}
             </div>
@@ -73,9 +79,10 @@ const Projects = () => {
               {[capabilityAgencyDashboard, capabilityParticipant].map((src, i) => (
                 <img
                   key={i}
-                  className="w-full md:flex-1 md:min-w-0 h-48 sm:h-56 md:h-64 object-cover rounded-lg"
+                  className="w-full md:flex-1 md:min-w-0 h-48 sm:h-56 md:h-64 object-cover rounded-lg cursor-zoom-in"
                   src={src}
                   alt={`capability_screenshot_${i + 1}`}
+                  onClick={() => setSelectedImage(src)}
                 />
               ))}
             </div>
@@ -104,15 +111,25 @@ const Projects = () => {
               {[posabilityDashboard, posabilityInvoiceCreate].map((src, i) => (
                 <img
                   key={i}
-                  className="w-full md:flex-1 md:min-w-0 h-48 sm:h-56 md:h-64 object-cover rounded-lg"
+                  className="w-full md:flex-1 md:min-w-0 h-48 sm:h-56 md:h-64 object-cover rounded-lg cursor-zoom-in"
                   src={src}
                   alt={`posability_screenshot_${i + 1}`}
+                  onClick={() => setSelectedImage(src)}
                 />
               ))}
             </div>
           </div>
         </div>
       </div>
+
+      {
+        selectedImage &&
+        <ImageModal
+          src={selectedImage}
+          alt="Planability screenshot"
+          onClose={() => setSelectedImage(null)}
+        />
+      }
     </div>
   );
 };
