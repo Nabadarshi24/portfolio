@@ -89,7 +89,7 @@ const Port = () => {
         <NavLink className={activeClass} to="/skills">Skills</NavLink>
         <NavLink className={activeClass} to="/education">Education</NavLink>
         <NavLink className={activeClass} to="/projects">Projects</NavLink>
-        <NavLink className={activeClass} to="/achivement">Achivement</NavLink>
+        {/* <NavLink className={activeClass} to="/achivement">Achivement</NavLink> */}
       </nav>
 
     </div>
