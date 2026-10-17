@@ -7,7 +7,7 @@ const Experience = () => {
             <div className="mt-8 text-white space-y-6">
                 <div>
                     <h3 className="text-lg mb-1 font-semibold">FAQ Private Limited, Dhaka (August 2022 – January 2023)</h3>
-                    <p className="text-orange-300 mb-2">Position: Intern Web Developer</p>
+                    <p className="text-orange-300 mb-2">Position: Intern Software Developer</p>
 
                     <ul className="list-disc pl-5 space-y-1 text-gray-300">
                         <li>Developed responsive web applications.</li>
